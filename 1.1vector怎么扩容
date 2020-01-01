@@ -1,0 +1,39 @@
+VS中
+当元素增加导致扩容时,1.5倍扩容.
+size():返回当前vector元素的个数
+capacity():返回当前vector中最大能够存储的元素个数
+reserve(n):通知容器它应该准备保存多少个元素、大于当前capacity时capacity()变为n,size不变.
+resize():size变大,capacity变大,但是不能变小.
+shrink_to_fity():要求将超出当前大小的多余内存返回给系统.
+vector<int> arr;
+	cout << "arr size:" << arr.size() << endl;
+	cout << "arr capacity" << arr.capacity() << endl;
+	for (int i = 0; i != 24; i++)
+		arr.push_back(i);
+	cout << "arr size:" << arr.size() << endl;
+	cout << "arr capacity" << arr.capacity() << endl;
+	arr.resize(50);
+	cout << "arr size:" << arr.size() << endl;
+	cout << "arr capacity" << arr.capacity() << endl;
+	arr.push_back(51);
+	cout << "arr size:" << arr.size() << endl;
+	cout << "arr capacity" << arr.capacity() << endl;
+	arr.reserve(80);
+	cout << "arr size:" << arr.size() << endl;
+	cout << "arr capacity" << arr.capacity() << endl;
+	arr.resize(10);
+	cout << "arr size:" << arr.size() << endl;
+	cout << "arr capacity" << arr.capacity() << endl;
+结果：
+    arr size:0
+    arr capacity0
+    arr size:24
+    arr capacity28
+    arr size:50
+    arr capacity50
+    arr size:51
+    arr capacity75
+    arr size:51
+    arr capacity80
+    arr size:10
+    arr capacity80
